@@ -10,7 +10,6 @@ export class CustomValidationPipe extends ValidationPipe {
     super({
       ...options,
       exceptionFactory: (errors: ValidationError[]) => {
-        console.log('debug here');
         return new BadRequestException(
           1001,
           'Validation error',
@@ -21,7 +20,6 @@ export class CustomValidationPipe extends ValidationPipe {
   }
 
   private formatErrors(errors: ValidationError[]): IValidationError[] {
-    console.log(errors);
     const dataFormateds = [];
 
     errors.forEach((error) => {
